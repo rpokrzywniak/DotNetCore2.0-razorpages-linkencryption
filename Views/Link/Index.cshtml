@@ -1,0 +1,22 @@
+@model List<webdev.Models.Link>
+<div>
+    @using (Html.BeginForm("Create", "Link", FormMethod.Post))
+    {
+        <input type="text" name="Long_link" placeholder="Full link" /> <br />
+        <button type="submit">Add</button>
+    }
+</div>  
+<div>
+    <table>
+        @foreach(var item in Model) {
+            <tr>
+                <td><strong>Full link:</strong></td>
+                <td>@Html.DisplayFor(model => item.Long_link),</td>
+                <td><strong>Short link:</strong></td>
+                <td>| <a href="~/@item.Short_link" target="_blank">@item.Short_link </a></td>
+                <td>| @Html.ActionLink("Delete", "Delete", "Link", item)</td>
+                <td>| @Html.ActionLink("Edit", "Edit", "Link", item)</td>
+            </tr>
+        }
+    </table>
+</div>

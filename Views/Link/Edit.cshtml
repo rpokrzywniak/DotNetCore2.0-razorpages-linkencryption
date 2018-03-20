@@ -1,0 +1,21 @@
+@model webdev.Models.Link
+<div>
+    <table>
+        <tr>
+            <td><strong>@Html.DisplayNameFor(model => Model.Long_link):</strong></td>
+            <td>@Html.DisplayFor(model => Model.Long_link),</td>
+            <td><strong>@Html.DisplayNameFor(model => Model.Short_link):</strong></td>
+            <td>@Html.DisplayFor(model => Model.Short_link)</td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    @using (Html.BeginForm("Update", "Link", FormMethod.Post))
+    {
+        <input type="text" name="Long_link" placeholder="Long link"/> <br/>
+        @Html.HiddenFor(model => Model.Id, Model.Short_link)
+        <button type="submit">Add</button>
+    }
+</div>
+     
